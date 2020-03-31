@@ -21,6 +21,7 @@ rtm.start().then(() => {
 
             if (text.startsWith("맛집")) {
                 const splited: string[] = text.split(" ");
+                splited.splice(0, 1);
                 const query = encodeURIComponent(`${splited.join(" ")} 맛집`)
                 const payload = {channel: channels.general, text: `https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${query}`, icon_emoji: ":ice_cream:"};
                 web.chat.postMessage(payload);
