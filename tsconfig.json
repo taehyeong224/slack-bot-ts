@@ -74,7 +74,7 @@
         "stripInternal": false, // /** @ internal * /JSDoc annotation이 있는 코드에 대한 선언을 내 보내지 않을지 여부
         
         /////////// optimization ///////////
-        "importHelpers": true, // tslib에서 helpers (e.g. __extends, __rest, etc..)를 가져온다.
+        // "importHelpers": true, // tslib에서 helpers (e.g. __extends, __rest, etc..)를 가져온다.
         
         /////////// sourceMap ///////////
         // "inlineSourceMap": false, // 소스맵을 결과코드에 추가
