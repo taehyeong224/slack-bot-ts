@@ -1,7 +1,6 @@
 import {WebClient} from "@slack/web-api";
 import {RTMClient} from "@slack/rtm-api";
 import { token, channels } from "./config/token";
-console.log("token: ", token)
 const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
 rtm.start().then(() => {
