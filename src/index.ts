@@ -16,7 +16,18 @@ rtm.start().then(() => {
         }
 
         if (text === "바보") {
-            const payload = {channel: channels.general, text: "반사", icon_emoji: ":raised_hand_with_fingers_splayed:"};
+            const bansa = `
+반사
+반사
+반사
+반사
+반사
+반사
+반사
+            `
+
+
+            const payload = {channel: channels.general, text: bansa, icon_emoji: ":raised_hand_with_fingers_splayed:"};
             return web.chat.postMessage(payload);
         }
 
