@@ -17,7 +17,7 @@ rtm.start().then(() => {
 
         if (text === "바보") {
             const payload = {channel: channels.general, text: "반사", icon_emoji: ":raised_hand_with_fingers_splayed:"};
-            web.chat.postMessage(payload);
+            return web.chat.postMessage(payload);
         }
 
         if (text.startsWith("맛집")) {
@@ -29,8 +29,9 @@ rtm.start().then(() => {
                 text: `https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${query}`,
                 icon_emoji: ":ice_cream:"
             };
-            web.chat.postMessage(payload);
+            return web.chat.postMessage(payload);
         }
+        return
     });
 
 }).catch(console.error);
