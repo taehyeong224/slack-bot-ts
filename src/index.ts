@@ -1,6 +1,7 @@
 import {WebClient} from "@slack/web-api";
 import {RTMClient} from "@slack/rtm-api";
-import { token, channels } from "./config/token";
+import {token, channels} from "./config/token";
+
 const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
 rtm.start().then(() => {
@@ -8,7 +9,7 @@ rtm.start().then(() => {
     rtm.on('ready', () => {
         console.log("rtm ready");
     });
-    rtm.on('message', async (message: {subtype?: string, text: string}) => {
+    rtm.on('message', async (message: { subtype?: string, text: string }) => {
         const {subtype, text} = message;
         if (subtype !== undefined && subtype === 'bot_message') {
             return;
@@ -23,11 +24,15 @@ rtm.start().then(() => {
             const splited: string[] = text.split(" ");
             splited.splice(0, 1);
             const query = encodeURIComponent(`${splited.join(" ")} 맛집`)
-            const payload = {channel: channels.general, text: `https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${query}`, icon_emoji: ":ice_cream:"};
+            const payload = {
+                channel: channels.general,
+                text: `https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${query}`,
+                icon_emoji: ":ice_cream:"
+            };
             web.chat.postMessage(payload);
         }
     });
-    
+
 }).catch(console.error);
 
 
