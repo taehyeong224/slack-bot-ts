@@ -15,6 +15,7 @@ rtm.start().then(() => {
             return;
         }
 
+        
         if (text === "바보") {
             const bansa = `
 반사
