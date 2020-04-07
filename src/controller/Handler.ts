@@ -1,7 +1,7 @@
 import {Bansa} from "./Bansa";
 import {Restaurant} from "./Restaurant";
-import {BaseInterface} from "./base/BaseInterface";
 import {ChatPostMessageArguments} from "@slack/web-api";
+import {BaseController} from "./base/BaseController";
 
 export class Handler {
     private readonly bansa: Bansa;
@@ -13,14 +13,17 @@ export class Handler {
     }
 
     public async checkAndExecute(text: string): Promise<void> {
-        const condition: BaseInterface | null = this.checkCondition(text);
-        condition?.setText(text);
-        await condition?.prepare();
-        const payload: ChatPostMessageArguments | undefined = await condition?.makePayload();
-        await condition?.sendToSlack(payload);
+        const condition: BaseController | null = this.checkCondition(text);
+        if (!condition) {
+            return;
+        }
+        condition.text = text;
+        await condition.prepare();
+        const payload: ChatPostMessageArguments | undefined = await condition.makePayload();
+        await condition.sendToSlack(payload);
     }
 
-    private checkCondition(text: string): BaseInterface | null {
+    private checkCondition(text: string): BaseController | null {
         if (text === "바보") {
             return this.bansa;
         }
