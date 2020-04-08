@@ -4,10 +4,11 @@ import {token} from "./config/token";
 import {Handler} from "./controller/Handler";
 import {Bansa} from "./controller/Bansa";
 import {Restaurant} from "./controller/Restaurant";
+import {YeahNo} from "./controller/YeahNo";
 
 const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
-const handler: Handler = new Handler(new Bansa(web), new Restaurant(web));
+const handler: Handler = new Handler(new Bansa(web), new Restaurant(web), new YeahNo(web));
 
 rtm.start().then(() => {
     console.log("start");
