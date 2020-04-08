@@ -14,6 +14,11 @@ export abstract class BaseController implements BaseInterface {
         return this._text;
     }
 
+
+    set text(value: string) {
+        this._text = value;
+    }
+
     abstract prepare(): Promise<void>;
 
     abstract makePayload(): Promise<ChatPostMessageArguments>;
@@ -25,7 +30,5 @@ export abstract class BaseController implements BaseInterface {
         await this.webClient.chat.postMessage(payload);
     }
 
-    setText(text: string): void {
-        this._text = text;
-    }
+    abstract checkCondition(): boolean;
 }

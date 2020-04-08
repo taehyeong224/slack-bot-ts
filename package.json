@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
+    "build": "npm run clean && ./node_modules/.bin/tsc",
     "dev": "npm run clean && ./node_modules/.bin/tsc && node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,12 +20,20 @@
   },
   "homepage": "https://github.com/taehyeong224/slack-bot-ts#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/shortid": "0.0.29",
+    "@types/sinon": "^9.0.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "@slack/rtm-api": "^5.0.3",
     "@slack/web-api": "^5.8.0",
+    "chai": "^4.2.0",
     "dotenv": "^8.2.0",
+    "mocha": "^7.1.1",
+    "shortid": "^2.2.15",
+    "sinon": "^9.0.1",
     "slackbots": "^1.2.0"
   }
 }
