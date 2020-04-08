@@ -35,4 +35,17 @@ describe("Restaurant", function () {
             })
         })
     })
+
+    describe("checkCondition", function ()  {
+        it("호출 시, false 반환 해야 한다.", function (done) {
+            expect(restaurant.checkCondition()).to.be.eq(false);
+            done();
+        });
+
+        it("text 가 '맛집' 으로 시작하면, true 반환 해야 한다.", function (done) {
+            restaurant.text = "맛집 사당역";
+            expect(restaurant.checkCondition()).to.be.eq(true);
+            done();
+        })
+    })
 });

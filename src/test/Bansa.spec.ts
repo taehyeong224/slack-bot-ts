@@ -40,5 +40,18 @@ describe("Bansa", function () {
                 done(error);
             })
         })
+    });
+
+    describe("checkCondition", function ()  {
+        it("호출 시, false 반환 해야 한다.", function (done) {
+            expect(bansa.checkCondition()).to.be.eq(false);
+            done();
+        });
+
+        it("text 가 '바보' 이면, true 반환 해야 한다.", function (done) {
+            bansa.text = "바보";
+            expect(bansa.checkCondition()).to.be.eq(true);
+            done();
+        })
     })
 });

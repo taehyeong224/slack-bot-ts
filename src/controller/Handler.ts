@@ -4,34 +4,20 @@ import {ChatPostMessageArguments} from "@slack/web-api";
 import {BaseController} from "./base/BaseController";
 
 export class Handler {
-    private readonly bansa: Bansa;
-    private readonly restaurant: Restaurant;
+    private readonly controllerList: BaseController[];
 
     constructor(bansa: Bansa, restaurant: Restaurant) {
-        this.bansa = bansa;
-        this.restaurant = restaurant;
+        this.controllerList = [bansa, restaurant];
     }
 
     public async checkAndExecute(text: string): Promise<void> {
-        const condition: BaseController | null = this.checkCondition(text);
-        if (!condition) {
-            return;
+        for (const controller of this.controllerList) {
+            controller.text = text;
+            if (controller.checkCondition()) {
+                await controller.prepare();
+                const payload: ChatPostMessageArguments = await controller.makePayload();
+                await controller.sendToSlack(payload);
+            }
         }
-        condition.text = text;
-        await condition.prepare();
-        const payload: ChatPostMessageArguments | undefined = await condition.makePayload();
-        await condition.sendToSlack(payload);
-    }
-
-    private checkCondition(text: string): BaseController | null {
-        if (text === "바보") {
-            return this.bansa;
-        }
-
-        if (text.startsWith("맛집")) {
-            return this.restaurant;
-        }
-
-        return null;
     }
 }

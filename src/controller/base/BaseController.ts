@@ -29,4 +29,6 @@ export abstract class BaseController implements BaseInterface {
         }
         await this.webClient.chat.postMessage(payload);
     }
+
+    abstract checkCondition(): boolean;
 }
