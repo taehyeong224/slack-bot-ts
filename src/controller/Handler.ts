@@ -1,6 +1,5 @@
 import {Bansa} from "./Bansa";
 import {Restaurant} from "./Restaurant";
-import {ChatPostMessageArguments} from "@slack/web-api";
 import {BaseController} from "./base/BaseController";
 
 export class Handler {
@@ -14,9 +13,7 @@ export class Handler {
         for (const controller of this.controllerList) {
             controller.text = text;
             if (controller.checkCondition()) {
-                await controller.prepare();
-                const payload: ChatPostMessageArguments = await controller.makePayload();
-                await controller.sendToSlack(payload);
+                await controller.processing();
             }
         }
     }
