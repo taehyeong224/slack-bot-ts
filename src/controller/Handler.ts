@@ -2,12 +2,13 @@ import {Bansa} from "./Bansa";
 import {Restaurant} from "./Restaurant";
 import {ChatPostMessageArguments} from "@slack/web-api";
 import {BaseController} from "./base/BaseController";
+import {YeahNo} from "./YeahNo";
 
 export class Handler {
     private readonly controllerList: BaseController[];
 
-    constructor(bansa: Bansa, restaurant: Restaurant) {
-        this.controllerList = [bansa, restaurant];
+    constructor(bansa: Bansa, restaurant: Restaurant, yeahNo: YeahNo) {
+        this.controllerList = [bansa, restaurant, yeahNo];
     }
 
     public async checkAndExecute(text: string): Promise<void> {
