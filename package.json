@@ -2,7 +2,7 @@
   "name": "slack-bot-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && ./node_modules/.bin/tsc",
