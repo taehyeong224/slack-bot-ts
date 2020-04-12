@@ -19,7 +19,7 @@ export abstract class BaseController implements BaseInterface {
         this._text = value;
     }
 
-    abstract prepare(): Promise<void>;
+    abstract async prepare(): Promise<void>;
 
     abstract makePayload(): Promise<ChatPostMessageArguments>;
 
@@ -31,4 +31,10 @@ export abstract class BaseController implements BaseInterface {
     }
 
     abstract checkCondition(): boolean;
+
+    public async processing(): Promise<void> {
+        await this.prepare();
+        const payload: ChatPostMessageArguments = await this.makePayload();
+        await this.sendToSlack(payload);
+    }
 }
