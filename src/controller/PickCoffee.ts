@@ -20,5 +20,5 @@ export class PickCoffee extends BaseController {
     public checkCondition(): boolean {
         return this.text === "오늘의커피";
     }
-
+    
 }
