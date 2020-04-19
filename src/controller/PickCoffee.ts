@@ -10,6 +10,7 @@ export class PickCoffee extends BaseController {
        console.log(coffeeMenu);
        const index = Math.floor(Math.random() * coffeeMenu.length);
        const pickone = coffeeMenu[index];
+       
        return {channel: channels.general, text: pickone, icon_emoji: ":blob-hearts:"};
     }
 
