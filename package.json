@@ -7,7 +7,7 @@
     "clean": "rm -rf ./dist",
     "build": "npm run clean && ./node_modules/.bin/tsc",
     "dev": "npm run clean && ./node_modules/.bin/tsc && node ./dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./src/test/PickCoffee.spec.ts" 
   },
   "repository": {
     "type": "git",
