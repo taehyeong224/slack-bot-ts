@@ -5,10 +5,11 @@ import {Handler} from "./controller/Handler";
 import {Bansa} from "./controller/Bansa";
 import {Restaurant} from "./controller/Restaurant";
 import {Dust} from "./controller/Dust";
+import {Tracker} from "./controller/Tracker";
 
 const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
-const handler: Handler = new Handler(new Bansa(web), new Restaurant(web), new Dust(web));
+const handler: Handler = new Handler(new Bansa(web), new Restaurant(web), new Dust(web), new Tracker(web));
 
 rtm.start().then(() => {
     console.log("start");
