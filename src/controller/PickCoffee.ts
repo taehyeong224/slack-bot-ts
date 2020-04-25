@@ -5,13 +5,13 @@ import {channels} from "../config/token";
 export class PickCoffee extends BaseController {
     public async makePayload(): Promise<ChatPostMessageArguments> {
        const coffeeMenu:string[] = [
-           "카라멜마끼아또", "아메리카노", "에티오피아싱글오리진", "카페라테", "에스프레소"
+           "HOT카라멜마끼아또", "HOT아메리카노", "ICE에티오피아싱글오리진", "HOT카페라테", "에스프레소", "ICE아메리카노", "ICE카라멜마끼아또", "ICE카페라떼", "ICE카푸치노", "HOT카푸치노", "마시지 마"
        ]
-       console.log(coffeeMenu);
+
        const index = Math.floor(Math.random() * coffeeMenu.length);
        const pickone = coffeeMenu[index];
        
-       return {channel: channels.general, text: pickone, icon_emoji: ":blob-hearts:"};
+       return {channel: channels.general, text: pickone, icon_emoji: ":coffee:"};
     }
 
     public async prepare(): Promise<void> {
@@ -20,5 +20,4 @@ export class PickCoffee extends BaseController {
     public checkCondition(): boolean {
         return this.text === "오늘의커피";
     }
-    
 }
