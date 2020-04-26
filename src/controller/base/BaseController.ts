@@ -1,5 +1,6 @@
 import {ChatPostMessageArguments, WebClient} from "@slack/web-api";
 import {BaseInterface} from "./BaseInterface";
+import {channels} from "../../config/token";
 
 export abstract class BaseController implements BaseInterface {
     private readonly webClient: WebClient;
@@ -33,8 +34,17 @@ export abstract class BaseController implements BaseInterface {
     abstract checkCondition(): boolean;
 
     public async processing(): Promise<void> {
-        await this.prepare();
-        const payload: ChatPostMessageArguments = await this.makePayload();
-        await this.sendToSlack(payload);
+        try {
+            await this.prepare();
+            const payload: ChatPostMessageArguments = await this.makePayload();
+            await this.sendToSlack(payload);
+        } catch (e) {
+            console.error(e)
+            await this.sendToSlack({channel: channels.general, text: `
+에러 발생~!
+${e.message}
+${e}
+`, icon_emoji: ":woman-facepalming:"})
+        }
     }
 }
