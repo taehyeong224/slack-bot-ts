@@ -5,7 +5,7 @@ import {channels} from "../config/token";
 
 export class ServerStatus extends BaseController {
     private output: any = {};
-
+    private readonly dangerous: string[] = ["sudo", "rm", "chmod"];
     public checkCondition(): boolean {
         return this.text.startsWith("s:");
     }
@@ -17,6 +17,12 @@ export class ServerStatus extends BaseController {
     public async prepare(): Promise<void> {
         const command = this.text.split("s:")[1].trim();
         console.log("command : ", command);
+        for (const item of this.dangerous) {
+            if (command.includes(item)) {
+                this.output["stdout"] = "허용 되지 않습니다."
+                return;
+            }
+        }
         this.output = exec(command)
         if (this.output["stdout"] === "" || this.output["stdout"] === undefined) {
             this.output["stdout"] = "성공";
