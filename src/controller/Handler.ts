@@ -4,12 +4,13 @@ import {BaseController} from "./base/BaseController";
 import {YeahNo} from "./YeahNo";
 import {Dust} from "./Dust";
 import {PickCoffee} from "./PickCoffee";
+import {ServerStatus} from "./ServerStatus";
 
 export class Handler {
     private readonly controllerList: BaseController[];
 
-    constructor(bansa: Bansa, restaurant: Restaurant, dust: Dust, yeahNo: YeahNo, pickcoffee: PickCoffee) {
-        this.controllerList = [bansa, restaurant, dust, yeahNo, pickcoffee];
+    constructor(bansa: Bansa, restaurant: Restaurant, dust: Dust, yeahNo: YeahNo, pickcoffee: PickCoffee, serverStatus: ServerStatus) {
+        this.controllerList = [bansa, restaurant, dust, yeahNo, pickcoffee, serverStatus];
     }
 
     public async checkAndExecute(text: string): Promise<void> {

@@ -7,10 +7,11 @@ import {Restaurant} from "./controller/Restaurant";
 import {Dust} from "./controller/Dust";
 import {YeahNo} from "./controller/YeahNo";
 import {PickCoffee} from "./controller/PickCoffee";
+import {ServerStatus} from "./controller/ServerStatus";
 
 const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
-const handler: Handler = new Handler(new Bansa(web), new Restaurant(web), new Dust(web), new YeahNo(web), new PickCoffee(web));
+const handler: Handler = new Handler(new Bansa(web), new Restaurant(web), new Dust(web), new YeahNo(web), new PickCoffee(web), new ServerStatus(web));
 
 rtm.start().then(() => {
     console.log("start");
