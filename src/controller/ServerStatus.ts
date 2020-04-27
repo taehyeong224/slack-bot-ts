@@ -7,15 +7,15 @@ export class ServerStatus extends BaseController {
     private output: any = {};
 
     public checkCondition(): boolean {
-        return this.text.startsWith("서버:");
+        return this.text.startsWith("s:");
     }
 
     public async makePayload(): Promise<ChatPostMessageArguments> {
-        return {channel: channels.general, text: this.output["stdout"], icon_emoji: ":coffee:"};
+        return {channel: channels.general, text: this.output["stdout"], icon_emoji: ":dog:"};
     }
 
     public async prepare(): Promise<void> {
-        const command = this.text.split("서버:")[1].trim();
+        const command = this.text.split("s:")[1].trim();
         console.log("command : ", command);
         this.output = exec(command)
         if (this.output["stdout"] === "" || this.output["stdout"] === undefined) {
