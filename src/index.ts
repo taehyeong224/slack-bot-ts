@@ -3,17 +3,10 @@ import {RTMClient} from "@slack/rtm-api";
 import {token} from "./config/token";
 import {Handler} from "./controller/Handler";
 import * as Controllers from "./controller";
-import {BaseController} from "./controller/base/BaseController";
 
 const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
-
-const list: BaseController[] = [];
-Object.keys(Controllers).map((key: string) => {
-    list.push(new Controllers[key](web))
-})
-
-const handler: Handler = new Handler(list);
+const handler: Handler = new Handler(Object.keys(Controllers).map(key => new Controllers[key](web)));
 
 rtm.start().then(() => {
     console.log("start");
