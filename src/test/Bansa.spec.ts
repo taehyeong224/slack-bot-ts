@@ -1,6 +1,6 @@
 import {describe} from "mocha"
 import {mock} from "sinon";
-import {Bansa} from "../controller/Bansa";
+import {Bansa} from "../controller/message/Bansa";
 import {ChatPostMessageArguments, WebClient} from "@slack/web-api";
 import {generate} from "shortid";
 import {expect} from "chai";

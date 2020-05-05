@@ -1,6 +1,6 @@
 import {BaseController} from "./base/BaseController";
 import {ChatPostMessageArguments} from "@slack/web-api";
-import {channels} from "../config/token";
+import {channels} from "../../config/token";
 
 export class PickCoffee extends BaseController {
     public async makePayload(): Promise<ChatPostMessageArguments> {

@@ -4,7 +4,7 @@ import {ChatPostMessageArguments, WebClient} from "@slack/web-api";
 import {generate} from "shortid";
 import {expect} from "chai";
 import {channels} from "../config/token";
-import {Restaurant} from "../controller/Restaurant";
+import {Restaurant} from "../controller/message/Restaurant";
 
 describe("Restaurant", function () {
     let restaurant: Restaurant;

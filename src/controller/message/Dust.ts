@@ -1,7 +1,7 @@
 import {BaseController} from "./base/BaseController";
 import {ChatPostMessageArguments} from "@slack/web-api";
 import axios from "axios";
-import {channels} from "../config/token";
+import {channels} from "../../config/token";
 
 type PM = { GOOD: number, NORMAL: number, BAD: number, VERY_BAD: number }
 type DustStatus = { GOOD: string, NORMAL: string, BAD: string, VERY_BAD: string }

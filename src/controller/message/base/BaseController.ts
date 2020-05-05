@@ -1,6 +1,6 @@
 import {ChatPostMessageArguments, WebClient} from "@slack/web-api";
 import {BaseInterface} from "./BaseInterface";
-import {channels} from "../../config/token";
+import {channels} from "../../../config/token";
 
 export abstract class BaseController implements BaseInterface {
     private readonly webClient: WebClient;

@@ -1,7 +1,7 @@
 import {BaseController} from "./base/BaseController";
 import {ChatPostMessageArguments} from "@slack/web-api";
 import {exec} from "shelljs";
-import {channels} from "../config/token";
+import {channels} from "../../config/token";
 
 export class ServerStatus extends BaseController {
     private output: any = {};
