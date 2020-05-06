@@ -14,11 +14,11 @@ const cronHandler: CronHandler = new CronHandler(Object.keys(Crons).map(key => n
 
 rtm.start().then(() => {
     console.log("start");
+    cronHandler.execute();
 }).catch(console.error);
 
 rtm.on('ready', () => {
     console.log("rtm ready");
-    cronHandler.execute();
 });
 rtm.on('message', async (message: { subtype?: string, text: string }) => {
     const {subtype, text} = message;
