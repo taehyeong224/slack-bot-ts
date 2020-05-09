@@ -19,6 +19,6 @@ export class Challenge extends BaseCron {
         schedule(this.rule, async () => {
             const payload = await this.makePayload();
             await this.sendToSlack(payload);
-        })
+        });
     }
 }
