@@ -4,7 +4,7 @@ import {channels} from "../../config/token";
 import {BaseCron} from "./base/BaseCron";
 
 export class Challenge extends BaseCron {
-    private readonly rule: string = "0 10-18 * * *"; // 매일 10시 ~ 18 시 매 시간 마다
+    private readonly rule: string = "0 10-18 * * 1-5"; // 월~금 10시 ~ 18 시 매 시간 마다
     // private readonly rule: string = "* * * * *"; // 1분 마다
 
     constructor(webClient: WebClient) {
