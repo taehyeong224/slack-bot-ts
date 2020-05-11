@@ -8,7 +8,7 @@ export abstract class BaseCron implements BaseCronInterface {
         this.webClient = webClient;
     }
 
-    abstract makePayload(): Promise<ChatPostMessageArguments>;
+    abstract makePayload(): Promise<ChatPostMessageArguments|void>;
 
     public async sendToSlack(payload: ChatPostMessageArguments | undefined): Promise<void> {
         if (!payload) {
