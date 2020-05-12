@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/taehyeong224/slack-bot-ts/compare/v1.1.0...v1.2.0) (2020-05-12)
+
+
+### Features
+
+* 첼린지 ([7b4d3e0](https://github.com/taehyeong224/slack-bot-ts/commit/7b4d3e056457552d90f4cfac85255d26d5778526))
+
+
+### Bug Fixes
+
+* dayjs 수정 ([646f807](https://github.com/taehyeong224/slack-bot-ts/commit/646f8078785854610f18fb05fb3c19408ff39d4f))
+
 ## [1.1.0](https://github.com/taehyeong224/slack-bot-ts/compare/v1.0.4...v1.1.0) (2020-05-11)
 
 
