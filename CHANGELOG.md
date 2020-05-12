@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/taehyeong224/slack-bot-ts/compare/v1.2.0...v1.2.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* edit rule ([cbcf5e5](https://github.com/taehyeong224/slack-bot-ts/commit/cbcf5e59cf5c3711ce185dbf289fa8e5a8213f56))
+
 ## [1.2.0](https://github.com/taehyeong224/slack-bot-ts/compare/v1.1.0...v1.2.0) (2020-05-12)
 
 
