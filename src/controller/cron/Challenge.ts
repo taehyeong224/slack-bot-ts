@@ -16,7 +16,7 @@ export class Challenge extends BaseCron {
         const now: Dayjs = dayjs();
         const hour: number = now.hour();
         console.log(hour)
-        if (hour === 10 || hour === 2) {
+        if (hour === 10 || hour === 14) {
             return {channel: channels.challenge, text: `쓰레드로 출첵을 해주세요 혹은 인증을 해주세요. ${hour === 2 ? '2시 30분 까지 해주세요.' : '10분 이내에 해주세요.'}`, icon_emoji: ":shipit:"};
         }
     }
