@@ -4,3 +4,4 @@ export {PickCoffee} from "./PickCoffee";
 export {Restaurant} from "./Restaurant";
 export {ServerStatus} from "./ServerStatus";
 export {YeahNo} from "./YeahNo";
+export {ChangeCronRule} from "./ChangeCronRule";

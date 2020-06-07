@@ -10,7 +10,7 @@ const rtm = new RTMClient(token || "");
 const web = new WebClient(token);
 
 const handler: Handler = new Handler(Object.keys(Controllers).map(key => new Controllers[key](web)));
-const cronHandler: CronHandler = new CronHandler(Object.keys(Crons).map(key => new Crons[key](web)));
+export const cronHandler: CronHandler = new CronHandler(Object.keys(Crons).map(key => new Crons[key](web)));
 
 rtm.start().then(() => {
     console.log("start");

@@ -12,4 +12,8 @@ export class CronHandler {
             controller.runCronJob();
         }
     }
+    public findControllerByName(name: string): BaseCronInterface | null {
+        const filtered: BaseCronInterface[] = this.controllerList.filter(item => item.constructor.name === name);
+        return filtered.length === 0 ? null : filtered[0];
+    }
 }
