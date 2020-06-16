@@ -5,7 +5,7 @@ import dayjs, {Dayjs} from "dayjs";
 
 export class Challenge extends BaseCron {
     constructor(webClient: WebClient) {
-        super(webClient, "0 10-18 * * 1-5"); // 월-금 10시-18 시 매 시간 마다
+        super(webClient, "0 8-18 * * 1-5"); // 월-금 10시-18 시 매 시간 마다
     }
 
     public async makePayload(): Promise<ChatPostMessageArguments | void> {
