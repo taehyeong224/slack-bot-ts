@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/taehyeong224/slack-bot-ts/compare/v1.2.2...v1.2.3) (2020-06-16)
+
+
+### Bug Fixes
+
+* bug ([086e6f6](https://github.com/taehyeong224/slack-bot-ts/commit/086e6f6d43b57bd91a722f8dfce09bda22313eef))
+* pickcoffee 에서 커피메뉴 하드코딩->웹크롤링, request,cheerio ([29b7a1b](https://github.com/taehyeong224/slack-bot-ts/commit/29b7a1b7dbd59a39008c20a134197b8ef0a994e4))
+
 ### [1.2.2](https://github.com/taehyeong224/slack-bot-ts/compare/v1.2.1...v1.2.2) (2020-05-13)
 
 
